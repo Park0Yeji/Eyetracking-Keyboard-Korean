@@ -1,0 +1,49 @@
+body{
+    background-color: white;
+}
+
+#description{
+    position: fixed;
+    width: 25%;
+    left: 5%;
+    bottom: 5%;
+    
+}
+
+h1{
+    
+    color: black;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 180%;
+    line-height: 110%;
+
+}
+
+button{
+    background: none;
+    stroke: none;
+    position: fixed;
+    /* height: 30%;
+    width: 30%; */
+    right: 5%;
+    bottom: 5%;
+    
+    color: black;
+    border: none;
+
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 200%;
+    line-height: 100%;
+
+    transition: 0.3s;
+}
+
+button:hover{
+    color: royalblue;
+    font-size: 200%;
+    cursor: pointer;
+}
