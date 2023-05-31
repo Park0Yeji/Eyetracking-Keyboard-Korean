@@ -1,3 +1,4 @@
+webgazer.clearData;
 webgazer.setGazeListener(function(data, elapsedTime) {
 	// console.log(data, elapsedTime); //elapsed time is based on time since begin was called
 }).begin();
@@ -8,8 +9,8 @@ function setup() {
 	createCanvas(windowWidth, windowHeight);
 	background(255,255,255)
 	fill(0,0,0)
-	let cx = [];
-	let cy = [];
+	cx = [];
+	cy = [];
 	for (let i = 1; i < 10; i++) {
 	cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/3
 	cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/3
