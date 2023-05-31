@@ -40,8 +40,8 @@ function draw() {
   background(255,255,255);
 
   textAlign(CENTER, CENTER);
-  text(word, windowWidth/2, windowHeight/2+30);
-  text(sen, windowWidth/2,  windowHeight/2-30);
+  text(word, windowWidth/2, windowHeight/4+20);
+  text(sen, windowWidth/2,  windowHeight/4-20);
 
   textAlign(CENTER, CENTER);
 
