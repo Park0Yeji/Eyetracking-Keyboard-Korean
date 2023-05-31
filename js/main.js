@@ -39,15 +39,15 @@ function draw() {
   frameRate(60);
   background(255,255,255);
 
-  textAlign(LEFT, CENTER);
-  text(word, 100, windowHeight - 140);
-  text(sen, 100, windowHeight - 100);
+  textAlign(CENTER, CENTER);
+  text(word, windowWidth/2, windowHeight/2+30);
+  text(sen, windowWidth/2,  windowHeight/2-30);
 
   textAlign(CENTER, CENTER);
 
   if(word[0] == '' | word[0] == undefined){
     first = consonant_input();
-    if(time>50){
+    if(time>20){
       word[0] = first;
       time = 0;
     }
@@ -56,7 +56,7 @@ function draw() {
   else if(word[1] == '' | word[1] == undefined){
     idle();
     mid = vowel_input();
-    if(time>50){
+    if(time>30){
       word[1] = mid;
       time = 0;
     }
@@ -64,14 +64,14 @@ function draw() {
   
   else if(word[2] == '' | word[2] == undefined){
     last = consonant2_input();
-    if(time>50){
+    if(time>30){
       word[2] = last;
       time = 0;
     }
   }
   else if(word[2] == 'ㄹ' | word[2] == 'ㄱ' | word[2] == 'ㄴ' | word[2] == 'ㅂ'){
       last2 = consonant3_input(word[2]);
-      if(time>50){
+      if(time>30){
         word[3] = last2;
 
         outcome = Hangul.assemble(word);
@@ -96,7 +96,7 @@ function draw() {
     time = 0;
   }
   
-  else if(d<20){
+  else if(d<100){
         //key = 0;
         outcome = Hangul.assemble(word);
         sen = sen + outcome;
@@ -104,22 +104,6 @@ function draw() {
         word = [];
         time =0;
         
-  }
-  
-  if(key == 1 & keyIsPressed === true){
-    if(word[0] != '' & word[0] != undefined){
-      word = [];
-      typing = '';
-      time =0;
-    }
-    
-    else{
-      sen.substring(0, max(0), sen.length -1);
-      word = [];
-      typing = '';
-      time =0;
-    }
-    
   }
   // console.log(first);
   // console.log(mid);
@@ -131,17 +115,34 @@ function draw() {
   // console.log(sent);
 }
 
+function keyReleased(){
+  if(key == 1){
+    if(word[0] != '' & word[0] != undefined){
+      word = [];
+      typing = '';
+      console.log(2);
+    }
+    
+    else{
+      console.log(3);
+      sen = sen.substring(0, sen.length -1);
+      word = [];
+      typing = '';
+    }
+  }
+}
+
 function idle(duc){
   textSize(32);
   
   let cx = [];
   let cy = [];
   for (let i = 1; i < 10; i++) {
-    cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/3
-    cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/3
+    cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/2.5
+    cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/2.5
   }
 
-  fill('red')
+  fill('blue')
   ellipse(windowWidth/2, windowHeight/2, 10);
   fill('black')
   
@@ -178,12 +179,12 @@ function nolr(num){
   let first;
   time++;
   
-  let r = 100;
+  let r = 200;
   let cx = [];
   let cy = [];
   for (let i = 1; i < 10; i++) {
-    cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/3
-    cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/3
+    cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/2.5
+    cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/2.5
   }
   
   let common_con = ['','ㄱ','ㄴ','ㄷ','ㅂ',' ','ㅅ','ㅈ','ㅇ'];
@@ -212,10 +213,10 @@ function nolr(num){
   ellipse(windowWidth/2, windowHeight/2, 10);
   fill('black')
 
-  if(eyeX > cx[num]+this.r/3){
+  if(eyeX > cx[num]+r/3){
     first = storng_con[num]
   }
-  else if(eyeX < cx[num]-this.r/3){
+  else if(eyeX < cx[num]-r/3){
     first = double_con[num]
   }
   else{
@@ -228,13 +229,13 @@ function noud(num, type){
   let first;
   time++;
   
-  let r = 100;
+  let r = 200;
   let cx = [];
   let cy = [];
   
   for (let i = 1; i < 10; i++) {
-    cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/3
-    cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/3
+    cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/2.5
+    cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/2.5
   }
   
   
@@ -300,12 +301,12 @@ function non(num, type, duc){
   time++;
   textSize(32);
   
-  let r = 100;
+  let r = 200;
   let cx = [];
   let cy = [];
   for (let i = 1; i < 10; i++) {
-    cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/3
-    cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/3
+    cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/2.5
+    cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/2.5
   }
   
   
@@ -338,13 +339,13 @@ function non(num, type, duc){
 function consonant_input(){
   
   let first;
-  let r = 100;
+  let r = 200;
   let d = [];
   let cx = [];
   let cy = [];
   for (let i = 1; i < 10; i++) {
-    cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/3
-    cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/3
+    cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/2.5
+    cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/2.5
   }
   
   for (let i = 1; i<10; i++){
@@ -390,13 +391,13 @@ function consonant_input(){
 function consonant2_input(){
   
   let first;
-  let r = 100;
+  let r = 200;
   let d = [];
   let cx = [];
   let cy = [];
   for (let i = 1; i < 10; i++) {
-    cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/3
-    cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/3
+    cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/2.5
+    cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/2.5
   }
   
   for (let i = 1; i<10; i++){
@@ -442,13 +443,13 @@ function consonant2_input(){
 function consonant3_input(numb){
   
   let first;
-  let r = 100;
+  let r = 200;
   let d = [];
   let cx = [];
   let cy = [];
   for (let i = 1; i < 10; i++) {
-    cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/3
-    cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/3
+    cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/2.5
+    cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/2.5
   }
   
   for (let i = 1; i<10; i++){

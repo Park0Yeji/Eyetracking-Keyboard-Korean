@@ -12,8 +12,8 @@ function setup() {
 	cx = [];
 	cy = [];
 	for (let i = 1; i < 10; i++) {
-	cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/3
-	cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/3
+	cx[i] = windowWidth/2 + sin(radians(45*(i-1)))*windowHeight/2.5
+	cy[i] = windowHeight/2 - cos(radians(45*(i-1)))*windowHeight/2.5
 	}
 }
 
@@ -24,12 +24,13 @@ function draw(){
 	textAlign(LEFT, CENTER);
 	textSize(32);
 
-	text('ㄱ', cx[1], cy[1]);
-	text('ㄴ', cx[2], cy[2]);
-	text('ㄷ', cx[3], cy[3]);
-	text('ㅂ', cx[4], cy[4]);
-	text('space', cx[5], cy[5]);
-	text('ㅅ', cx[6], cy[6]);
-	text('ㅈ', cx[7], cy[7]);
-	text('ㅇ', cx[8], cy[8]);
+	text('1', cx[1], cy[1]);
+	text('5', cx[2], cy[2]);
+	text('3', cx[3], cy[3]);
+	text('7', cx[4], cy[4]);
+	text('2', cx[5], cy[5]);
+	text('6', cx[6], cy[6]);
+	text('4', cx[7], cy[7]);
+	text('8', cx[8], cy[8]);
+	text('9', windowWidth/2, windowHeight/2);
 }
